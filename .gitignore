@@ -1,1 +1,3 @@
 /myvenv
+/student_prediction(knn)/knn_model.pkl
+/student_prediction(knn)/scaler.pkl
