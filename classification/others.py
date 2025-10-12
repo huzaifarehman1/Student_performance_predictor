@@ -4,6 +4,7 @@ import pandas as pd
 # skleanr 
 from sklearn.metrics import classification_report
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 #balancer
 from imblearn.over_sampling import RandomOverSampler
@@ -12,7 +13,8 @@ from imblearn.over_sampling import RandomOverSampler
 percentage = 25
 percentage = percentage/100
 ignored_column = ["Gender", "Distance_from_Home", "Teacher_Quality", "Tutoring_Sessions"]
-want_report = True
+want_report_logreg = False
+want_report_svc = True
 PATH = "/home/huzaifa/code/AI/Machine_learning/StudentPerformanceFactors.csv"
 
 # loading data
@@ -45,17 +47,22 @@ for col in data.columns:
 X = data.iloc[:, :-1]
 Y = data.iloc[:, -1]
 x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=percentage, random_state=42)
-print(Y.value_counts())
-print("Unique labels in Y:", Y.unique())
 ros = RandomOverSampler(random_state=42)
 x_train_resampled, y_train_resampled = ros.fit_resample(x_train, y_train)
 
-# model  logistic regression
-LOG_REG_model = LogisticRegression()
-LOG_REG_model = LOG_REG_model.fit(x_train_resampled,y_train_resampled)
-
 # report
-if want_report:
+if want_report_logreg:
+    # model  logistic regression
+    LOG_REG_model = LogisticRegression(class_weight="balanced")
+    LOG_REG_model = LOG_REG_model.fit(x_train_resampled,y_train_resampled)
     y_pred = LOG_REG_model.predict(x_test)
     print(classification_report(y_test,y_pred))
+
+
+# report
+if want_report_svc:
+    sv_model = SVC()
+    sv_model = sv_model.fit(x_train_resampled,y_train_resampled)
+    y_pred = sv_model.predict(x_test)
+    print(classification_report(y_test,y_pred))    
 
