@@ -25,7 +25,6 @@ converter = lambda x:conversion[x]
 for col in data.columns:        
     if col not in ignore_column:
         if isinstance(data[col][2], str):
-            continue
             data[col] = data[col].apply(converter)
             plt.title(f"{col} -> EXAM_SCORE")
             values = data[col].unique()
