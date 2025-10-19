@@ -1,4 +1,5 @@
 /lung_cancer_prediction-ML-
+/.vscode
 /student_prediction/myvenv
 /student_prediction(knn)/knn_model.pkl
 /student_prediction(knn)/scaler.pkl
