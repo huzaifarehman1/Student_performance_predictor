@@ -1,5 +1,5 @@
-/home/huzaifa/code/AI/Machine_learning/lung_cancer_prediction-ML-
-/myvenv
+/lung_cancer_prediction-ML-
+/student_prediction/myvenv
 /student_prediction(knn)/knn_model.pkl
 /student_prediction(knn)/scaler.pkl
 student_prediction(knn)/knn_model2.pkl
