@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error,mean_squared_error,root_mean_squared_error,r2_score
 import matplotlib.pyplot as plt
 # parameters
-PATH = "/home/huzaifa/code/AI/Machine_learning/StudentPerformanceFactors.csv"
+PATH = "/home/huzaifa/code/AI/Machine_learning/student_prediction/StudentPerformanceFactors.csv"
 ignore_column = ["Gender", "Distance_from_Home", "Teacher_Quality"]
 report = True
 percentage = 25
@@ -56,6 +56,7 @@ if report:
         print(f"____{name}____")
         model = model.fit(x_train,y_train)
         
+        #model.score() must be close to 1
         # test model
         y_pred = model.predict(x_test)
     

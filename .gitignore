@@ -1,5 +1,9 @@
-/lung_cancer_prediction-ML/
+/lung_cancer_prediction-ML
 /collage_project
+/best_model.joblib
+/data_predicted.csv
+/data.csv
+/model
 /.vscode
 /myvenv
 /student_prediction(knn)/knn_model.pkl
