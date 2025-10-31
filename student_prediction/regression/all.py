@@ -39,6 +39,7 @@ x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=percentage, 
 models = {
     
     "LINEAR_REGRESSION":LinearRegression(),
+    
           }
 
 if report:
@@ -49,7 +50,7 @@ if report:
         "MAE":  (None, float("inf")),   # lower is better
         "MSE":  (None, float("inf")),   # lower is better
         "RMSE": (None, float("inf")),   # lower is better
-        "R2":   (None, float("-inf")),  # higher is better
+        "R2":   (None, float("-inf")),  # higher is better (close to 1)
     }
     for name,model in models.items():
         print("\n")
